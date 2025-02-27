@@ -7,11 +7,11 @@
         <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
         <style>
             .nav-tabs .nav-link {
-                background-color:rgb(23, 173, 23);
+                background-color:rgb(255, 187, 0);
                 color: white;
             }
             .nav-tabs .nav-link.active {
-                background-color:rgb(23, 173, 23);
+                background-color:rgb(255, 187, 0);
                 color: white;
             }
         </style>
@@ -62,7 +62,7 @@
         <div class="tab-content mt-3">
             <!-- STATUS -->
             <div class="tab-pane fade show active" id="status">
-                <h3 class="fw-bold">USULAN PENGAJUAN SURAT KETERANGAN DOMISILI</h3>
+                <h3 class="fw-bold">USULAN PENGAJUAN SURAT KETERANGAN KELAHIRAN</h3>
                 <br>
                 <div class="d-flex gap-2">
                     <button type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalTambah">
@@ -94,8 +94,8 @@
             
             <!-- DESKRIPSI -->  
             <div class="tab-pane fade" id="deskripsi">
-                <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN DOMISILI</h3>
-                <p>Surat Keterangan Domisili adalah surat yang menerangkan belum pernah menikah alias berstatus lajang.</p>
+                <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN KELAHIRAN</h3>
+                <p>Surat Keterangan Kelahiran adalah surat yang menerangkan belum pernah menikah alias berstatus lajang.</p>
                 <p><strong>Output:</strong> <span id="output"></span></p>
                 <p><strong>Masa berlaku:</strong> <span id="masaBerlaku"></span> tahun</p>
                 <button class="btn btn-primary">Ajukan</button>
@@ -120,7 +120,7 @@
     @push('scripts')
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById("output").textContent = "Surat Keterangan Domisili ";
+                document.getElementById("output").textContent = "Surat Keterangan Kelahiran ";
                 document.getElementById("masaBerlaku").textContent = "1";
             });
         </script>

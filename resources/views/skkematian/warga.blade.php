@@ -62,7 +62,7 @@
         <div class="tab-content mt-3">
             <!-- STATUS -->
             <div class="tab-pane fade show active" id="status">
-                <h3 class="fw-bold">USULAN PENGAJUAN SURAT KETERANGAN DOMISILI</h3>
+                <h3 class="fw-bold">USULAN PENGAJUAN SURAT KETERANGAN KEMAIAN</h3>
                 <br>
                 <div class="d-flex gap-2">
                     <button type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalTambah">
@@ -94,8 +94,8 @@
             
             <!-- DESKRIPSI -->  
             <div class="tab-pane fade" id="deskripsi">
-                <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN DOMISILI</h3>
-                <p>Surat Keterangan Domisili adalah surat yang menerangkan belum pernah menikah alias berstatus lajang.</p>
+                <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN KEMATIAN</h3>
+                <p>Surat Keterangan Kematian adalah surat yang menerangkan belum pernah menikah alias berstatus lajang.</p>
                 <p><strong>Output:</strong> <span id="output"></span></p>
                 <p><strong>Masa berlaku:</strong> <span id="masaBerlaku"></span> tahun</p>
                 <button class="btn btn-primary">Ajukan</button>
@@ -120,7 +120,7 @@
     @push('scripts')
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById("output").textContent = "Surat Keterangan Domisili ";
+                document.getElementById("output").textContent = "Surat Keterangan Kematian ";
                 document.getElementById("masaBerlaku").textContent = "1";
             });
         </script>
