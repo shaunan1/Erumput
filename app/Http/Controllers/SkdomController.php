@@ -446,7 +446,7 @@ class SkdomController extends Controller
             'id_kel'    => auth()->user()->id_instansi,
             'kd_jenis_surat' => 0,
             'no_urut_surat' => 0,
-            'kd_instansi' => $regional['skpd']->instansi_kode,
+            //'kd_instansi' => $regional['skpd']->instansi_kode,
             'tahun' => date('Y'),
             'tgl_surat' => date('Y-m-d'),
             'nik' => $request->nik,
