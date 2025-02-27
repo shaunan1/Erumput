@@ -18,7 +18,7 @@
     @endpush
 
         <!-- TABS -->
-        <ul class="nav nav-tabs" id="skbnTabs">
+        <ul class="nav nav-tabs" id="skkematianTabs">
             <li class="nav-item">
                 <a class="nav-link active" id="status-tab" data-bs-toggle="tab" href="#status">STATUS</a>
             </li>
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    @include('modals.skbn-add-modal')
+    @include('modals.skkematian-add-modal')
 
     @push('scripts')
         <script>
