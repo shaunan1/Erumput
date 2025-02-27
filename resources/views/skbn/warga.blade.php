@@ -17,34 +17,6 @@
         </style>
     @endpush
 
-    <div class="container">
-        <!-- HEADER -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-            <a class="navbar-brand fw-bold text-warning" href="#">E - SUKET</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="ajukanDropdown" role="button" data-bs-toggle="dropdown">Ajukan Surat</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Surat Keterangan Belum Menikah</a></li>
-                            <li><a class="dropdown-item" href="#">Surat Keterangan Domisili</a></li>
-                            <li><a class="dropdown-item" href="#">Surat Keterangan Boro</a></li>
-                            <li><a class="dropdown-item" href="#">Surat Keterangan Tidak Mampu</a></li>
-                            <li><a class="dropdown-item" href="#">Surat Keterangan Penghasilan</a></li>
-                            <li><a class="dropdown-item" href="#">Surat Keterangan Usaha</a></li>
-                            <li><a class="dropdown-item" href="#">Surat Keterangan Kelahiran</a></li>
-                            <li><a class="dropdown-item" href="#">Surat Keterangan</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-secondary" onclick="window.location.href='/'">Beranda</button>
-                    </li>
-                    <li class="nav-item">
-                        <img src="/path/to/profile.jpg" alt="Foto Profil" class="rounded-circle" width="40" height="40">
-                    </li>
-                </ul>
-            </div>
-        </nav>
 
         <!-- TABS -->
         <ul class="nav nav-tabs" id="skbnTabs">
