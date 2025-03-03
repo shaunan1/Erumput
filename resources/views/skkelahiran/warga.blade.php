@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    @include('modals.skbn-add-modal')
+    @include('modals.sk-add-modal')
 
     @push('scripts')
         <script>

@@ -169,7 +169,7 @@
                             <li class="sidebar-item">
                                 <a href="{{ url('/') }}" class="sidebar-link">Profil</a>
                             </li>
-                            @if (auth()->user()->role_id != 2)
+                                @if (auth()->user()->role_id != 2)
                                 <li class="sidebar-item">
                                     <a href="{{ url('/') }}" class="sidebar-link">Rekap</a>
                                 </li>

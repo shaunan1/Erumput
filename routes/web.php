@@ -17,6 +17,7 @@ use App\Http\Controllers\SktmController;
 use App\Http\Controllers\SkusahaController;
 use App\Http\Controllers\SuketController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,22 +38,25 @@ Route::get('/', function () {
     }
     return redirect()->route('login');
     // return view('welcome');
+
+    
 });
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 Route::get('/activity', [HomeController::class, 'activity'])->name('activity');
 Route::get('/activity/last', [HomeController::class, 'last_activity'])->name('activity.last');
 
-Route::middleware(['auth', 'role:1,3,4'])->prefix('skbn')->group(function(){
-    Route::get('/', [SkbnController::class, 'index'])->name('skbn.index');
-    Route::get('/add', [SkbnController::class, 'add'])->name('skbn.add');
-    Route::post('/', [SkbnController::class, 'store'])->name('skbn.store');
-    Route::get('/edit/{id}', [SkbnController::class, 'edit'])->name('skbn.edit');
-    Route::post('/update/{id}', [SkbnController::class, 'update'])->name('skbn.update');
-    Route::post('/naik/{id}', [SkbnController::class, 'naik'])->name('skbn.naik');
-    Route::get('/preview/{id}', [SkbnController::class, 'preview'])->name('skbn.preview');
-    Route::get('/cetak/{id}', [SkbnController::class, 'cetak'])->name('skbn.cetak');
-    Route::post('/tolak/{id}', [SkbnController::class, 'tolak'])->name('skbn.tolak');
-});
+    Route::middleware(['auth', 'role:1,3,4'])->prefix('skbn')->group(function(){
+        Route::get('/', [SkbnController::class, 'index'])->name('skbn.index');
+        Route::get('/add', [SkbnController::class, 'add'])->name('skbn.add');
+        Route::post('/', [SkbnController::class, 'store'])->name('skbn.store');
+        Route::get('/edit/{id}', [SkbnController::class, 'edit'])->name('skbn.edit');
+        Route::post('/update/{id}', [SkbnController::class, 'update'])->name('skbn.update');
+        Route::post('/naik/{id}', [SkbnController::class, 'naik'])->name('skbn.naik');
+        Route::get('/preview/{id}', [SkbnController::class, 'preview'])->name('skbn.preview');
+        Route::get('/cetak/{id}', [SkbnController::class, 'cetak'])->name('skbn.cetak');
+        Route::post('/tolak/{id}', [SkbnController::class, 'tolak'])->name('skbn.tolak');
+    });
+    
 
 Route::middleware(['auth', 'role:1,3,4'])->prefix('suket')->group(function(){
     Route::get('/', [SuketController::class, 'index'])->name('suket.index');
@@ -157,6 +161,11 @@ Route::middleware(['auth', 'role:1,3,4'])->prefix('skkelahiran')->group(function
     Route::get('/cetak/{id}', [SkkelahiranController::class, 'cetak'])->name('skkelahiran.cetak');
     Route::post('/tolak/{id}', [SkkelahiranController::class, 'tolak'])->name('skkelahiran.tolak');
 });
+Route::middleware(['auth', 'role:2'])->prefix('warga/skkelahiran')->group(function(){
+    Route::get('/', [SkKelahiranController::class, 'index'])->name('skkelahiran.warga');
+    Route::post('/store', [SkKelahiranController::class, 'store'])->name('skkelahiran.store');
+});
+
 
 Route::middleware(['auth', 'role:1,3,4'])->prefix('skkematian')->group(function(){
     Route::get('/', [SkkematianController::class, 'index'])->name('skkematian.index');
@@ -169,8 +178,16 @@ Route::middleware(['auth', 'role:1,3,4'])->prefix('skkematian')->group(function(
     Route::get('/cetak/{id}', [SkkematianController::class, 'cetak'])->name('skkematian.cetak');
     Route::post('/tolak/{id}', [SkkematianController::class, 'tolak'])->name('skkematian.tolak');
 });
-
+Route::middleware(['auth', 'role:2'])->prefix('warga/skkematian')->group(function(){
+    Route::get('/', [SkKematianController::class, 'index'])->name('skkematian.warga');
+    Route::post('/store', [SkKematianController::class, 'store'])->name('skkematian.store');
+});
 
 Route::get('/sso', [LoginController::class, 'sso'])->name('sso.login');
 Route::get('/callback', [LoginController::class, 'callback'])->name('sso.callback');
 Route::get('/users/profile', [LoginController::class, 'profile'])->name('users.profile');
+Route::middleware(['auth'])->group(function () {
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/profile/update-photo', [ProfileController::class, 'updatePhoto'])->name('profile.update-photo');
+});

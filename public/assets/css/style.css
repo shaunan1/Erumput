@@ -1,0 +1,36 @@
+.text-gold {
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+.btn-brown {
+    background-color: #A48D69;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+.btn-brown:hover {
+    background-color: #8B7A5E;
+}
+
+.bg-brown {
+    background-color: #8B5E3C;
+}
+
+.fixed-bottom {
+    z-index: 1030;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Menyesuaikan agar dropdown muncul di bawah tombol */
+}
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.dropdown-item:hover {
+    background-color: #3A5672;
+}

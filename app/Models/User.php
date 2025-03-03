@@ -27,6 +27,7 @@ class User extends Authenticatable
         'role_id',
         'id_instansi',
         'password',
+        'photo',
     ];
 
     public function getActivitylogOptions(): LogOptions
