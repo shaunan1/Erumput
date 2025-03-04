@@ -144,8 +144,8 @@
 
                                     <div class="row mb-0">
                                         <div class="col-md-6 offset-md-4">
-                                            <button type="submit" class="btn btn-primary btn-lg col-6">
-                                                {{ __('Daftar Sekarang') }}
+                                            <button type="submit" class="btn p-0 border-0" style="background: none;">
+                                                <img src="{{ asset('images/daftar sekarang.png') }}" alt="Daftar Sekarang" class="img-fluid">
                                             </button>
                                         </div>
                                     </div>
