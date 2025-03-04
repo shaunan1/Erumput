@@ -69,12 +69,18 @@
                     </span>
                     Panduan Mengakses E-SUKET
                 </h5>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="mx-2" style="width: 150px; height: 100px; background: url('https://via.placeholder.com/150') center center / cover; border-radius: 10px;"></div>
-                    <div class="mx-2" style="width: 150px; height: 100px; background: url('https://via.placeholder.com/150') center center / cover; border-radius: 10px;"></div>
-                </div>
+        <!-- Space kosong untuk diisi konten -->
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="video-container mx-2" style="width: 150px; height: 100px; background-color: #F9F9F9; border-radius: 10px; overflow: hidden;">
+                <iframe width="150" height="100" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-container mx-2" style="width: 150px; height: 100px; background-color: #F9F9F9; border-radius: 10px; overflow: hidden;">
+                <iframe width="150" height="100" src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
+    </div>
+</div>
+
 
         <!-- Profil -->
         <div class="col-md-4">
