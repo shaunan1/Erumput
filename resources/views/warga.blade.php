@@ -229,7 +229,7 @@
             <div class="p-3 bg-white rounded shadow-sm text-center" style="border: 2px solid #E1E1E1;">
                 <div class="mb-3" style="width: 100px; height: 130px; background: url('https://via.placeholder.com/100x130') center center / cover; border-radius: 10px; margin: 0 auto; border: 1px solid #E1E1E1;"></div>
                 <div class="p-2 rounded" style="background-color: #F8F8F8; border: 1px solid #E1E1E1;">
-                    <p class="mb-0 fw-bold">3571xxxxxxxxxxxx</p>
+                <p class="mb-0 fw-bold">{{ auth()->user()->nik }}</p>
                     <small class="text-muted">Nomor Induk Kependudukan</small>
                 </div>
                 <h5 class="mt-3 fw-bold text-uppercase">{{ auth()->user()->name }}</h5>
@@ -244,21 +244,21 @@
     <div class="row g-3">
         @php
             $surat = [
-                27 => 'belumnikah',
-                31 => 'miskin',
-                32 => 'boro',
-                29 => 'penghasilan',
-                30 => 'keterangan',
-                28 => 'kelahiran',
-                33 => 'domisili',
-                34 => 'usaha',
-                35 => 'kematian'
+                27 => 'skbn',
+                31 => 'skkelahiran',
+                32 => 'skkematian',
+                29 => 'sktm',
+                30 => 'skboro',
+                28 => 'skhsl',
+                33 => 'skusaha',
+                34 => 'skdom',
+                35 => 'suket'
             ];
         @endphp
 
         @foreach($surat as $id => $jenis)
         <div class="col-md-4 d-flex justify-content-center">
-            <a href="{{ url('/logsurat/'.$jenis) }}" class="btn btn-light shadow-sm w-100">
+            <a href="{{ url('/warga/'.$jenis) }}" class="btn btn-light shadow-sm w-100">
                 <img src="{{ asset('images/component'.$id.'.png') }}" class="img-fluid rounded" alt="Surat Keterangan">
             </a>
         </div>

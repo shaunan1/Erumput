@@ -27,7 +27,6 @@
             padding: 8px 20px;
             border: none;
             font-weight: 500;
-            margin-right: 10px;
         }
 
         .btn-custom:hover {
@@ -75,8 +74,17 @@
                     <li class="nav-item">
                         <a class="btn btn-custom" href="{{ url('/') }}">Beranda</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-custom" href="#">Ajukan Surat</a>
+                    <!-- Dropdown Ajukan Surat -->
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-custom dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ajukan Surat
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="{{ route('skbn.warga') }}">Surat Keterangan Belum Menikah</a></li>
+                            <li><a class="dropdown-item" href="{{ route('skhsl.warga') }}">Surat Keterangan Penghasilan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('sktm.warga') }}">Surat Keterangan Miskin</a></li>
+                            <li><a class="dropdown-item" href="{{ route('skboro.warga') }}">Surat Keterangan Boro</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -94,5 +102,4 @@
     </main>
 
 </body>
-
 </html>
