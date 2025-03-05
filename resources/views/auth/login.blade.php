@@ -13,10 +13,15 @@
         <div class="card shadow-lg text-center p-4 position-relative d-flex flex-column align-items-center"
             style="border-radius: 8px; width: 100%; max-width: 380px; padding: 40px; margin-top: 60px;">
 
-            <!-- Logo Kediri (Dikurangi Tingginya Agar Tidak Terpotong) -->
-            <div class="position-absolute" style="top: -45px; z-index: 10;">
-                <img src="{{ asset('assets/Group 16.png') }}" class="img-fluid" style="height: 70px;" alt="Logo Kediri">
-            </div>
+            <!-- Logo Kediri dengan Background Oval -->
+            <div class="position-absolute d-flex align-items-center justify-content-center"
+            style="top: -45px; z-index: 10; width: 300px; height: 70px; background-color: white; border-radius: 35px; padding: 10px;">
+            <img src="{{ asset('images/logo-pemkot.png') }}" class="img-fluid" 
+            style="max-height: 50px;" 
+            alt="Logo Kediri">
+        </div>
+
+
 
             <!-- Judul -->
             <img src="{{ asset('assets/esuket.png') }}" alt="Logo" style="width: 200px; height: 30px; margin-top: 30px;">

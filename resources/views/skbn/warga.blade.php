@@ -77,7 +77,7 @@
                 <li>Surat Pernyataan Belum Menikah yang ditandatangani</li>
                 <li>Pas Foto ukuran 3x4 cm</li>
             </ol>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#skbnaddmodal">Ajukan</button>
         </div>
     </div>
 
@@ -131,6 +131,7 @@
             <button class="mt-4 w-full bg-yellow-500 text-white p-3 rounded-lg">Daftar Perizinan</button>
         </div>
     </div>
+    @include('modals.skbn-add-modal')
 @endsection
 
 @push('scripts')

@@ -66,7 +66,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">No. NIK</label>
-                            <input type="text" class="form-control" name="nik" placeholder="Masukkan 16 Digit NIK">
+                            <input type="text" class="form-control" name="nik" placeholder="Masukkan 16 Digit NIK" value="{{ Auth::user()->nik }}">
                         </div>
 
                         <div class="mb-3">

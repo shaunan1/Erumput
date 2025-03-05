@@ -15,26 +15,42 @@
 
         <style>
             .navbar-custom {
-                background-color: white;
-                padding: 10px 20px;
-                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-                position: fixed;
-                width: 100%;
-                top: 0;
-                z-index: 1000;
-            }
+        background-color: white;
+        padding: 12px 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
 
-            .btn-custom {
-                background-color: #b59d6a;
-                color: white;
-                border-radius: 10px;
-                padding: 8px 15px;
-                border: none;
-            }
+    .btn-custom {
+        background-color: #b59d6a;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+    }
 
-            .btn-custom:hover {
-                background-color: #a0895a;
-            }
+    .btn-custom:hover {
+        background-color: #a0895a;
+        transform: scale(1.05);
+    }
+
+    .profile-btn {
+        border-radius: 10px;
+        padding: 8px 15px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .profile-btn:hover {
+        background-color: #e0e0e0;
+        transform: scale(1.05);
+    }
 
             .sidebar {
                 width: 250px;
@@ -91,27 +107,40 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('assets/esuket.png') }}" alt="E-SUKET Logo" height="30">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="{{ asset('assets/esuket.png') }}" alt="E-SUKET Logo" height="30">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-2">
+                    <a class="btn btn-custom" href="{{ url('/') }}">Beranda</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="btn btn-custom" href="#">Ajukan Surat</a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex align-items-center">
+            @auth
+                <a class="btn btn-outline-secondary profile-btn" href="{{ route('profile') }}">
+                <img src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('assets/default-profile.png') }}" 
+                alt="{{ Auth::user()->name }}" height="30" class="me-2">
+
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="btn btn-custom" href="{{ url('/') }}">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-custom" href="#">Ajukan Surat</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            @else
+                <a class="btn btn-outline-secondary profile-btn" href="{{ route('login') }}">
+                    Masuk
+                </a>
+            @endauth
+        </div>
+    </div>
+</nav>
 
         <div class="sidebar">
     <h5 class="fw-bold mb-3 d-flex align-items-center">

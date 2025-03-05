@@ -71,4 +71,8 @@ class User extends Authenticatable
     return $this->hasOne(ProfilUser::class);
     }
 
+    public function kelurahan()
+    {
+    return $this->belongsTo(Regional::class, 'kelurahan_id', 'id');
+    }
 }
