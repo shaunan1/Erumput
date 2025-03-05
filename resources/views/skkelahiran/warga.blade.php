@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Surat Keterangan')
+
 @push('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
@@ -62,7 +64,7 @@
         
         <div class="tab-pane fade" id="deskripsi">
             <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN KELAHIRAN</h3>
-            <p>Surat Keterangan Kelahiran adalah </p>
+            <p>Surat Keterangan Kelauhra adalah </p>
             <p><strong>Output:</strong> <span id="output"></span></p>
             <p><strong>Masa berlaku:</strong> <span id="masaBerlaku"></span> tahun</p>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
@@ -81,55 +83,96 @@
     </div>
 
     <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="formModalLabel">Usulan Pengajuan Surat Keterangan Kelahiran</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label>No. Surat</label>
-                            <input type="text" class="small-input"> 
-                            <input type="text" value="419.407" disabled>
-                            <input type="text" value="2024" disabled>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formModalLabel">Usulan Pengajuan Surat Keterangan Kelahiran</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="suratForm">
+                    <div class="form-group mb-3">
+                        <label>No. Surat</label>
+                        <div class="flex items-center space-x-2">
+                            <input type="text" class="small-input w-1/3 border-gray-300 rounded-lg" placeholder="No. Surat">
+                            <input type="text" value="419.407" disabled class="w-1/3 border-gray-300 rounded-lg">
+                            <input type="text" value="2024" disabled class="w-1/3 border-gray-300 rounded-lg">
                         </div>
-                        <div class="form-group">
-                            <label>Tanggal Surat</label>
-                            <input type="date" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Tanggal Surat</label>
+                        <input type="date" class="form-control border-gray-300 rounded-lg">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>NIK</label>
+                        <div class="flex items-center space-x-2">
+                            <input type="text" id="nikInput" class="form-control border-gray-300 rounded-lg" placeholder="Masukkan 16 Digit NIK">
+                            <button type="button" class="btn btn-secondary" id="searchNikBtn">CARI</button>
                         </div>
-                        <div class="form-group">
-                            <label>NIK</label>
-                            <input type="text" class="form-control" placeholder="Masukkan 16 Digit NIK">
-                            <button type="button" class="btn btn-secondary">CARI</button>
-                        </div>
-                        <div class="form-group">
-                            <label>No. KK</label>
-                            <input type="text" class="form-control" placeholder="Masukkan 16 Digit No.KK">
-                        </div>
-                        <div class="form-group">
-                            <label>Nama</label>
-                            <input type="text" class="form-control" placeholder="Nama Lengkap">
-                        </div>
-                        <div class="form-group">
-                            <label>Kegunaan</label>
-                            <textarea class="form-control" placeholder="Kegunaan"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Surat Pengantar</label>
-                            <input type="file" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">
-                            <img src="{{ asset('images/save changes.png') }}" alt="Save Changes" style="width: 24px; height: 24px;"> Save Changes
-                        </button>
-                    </form>
-                </div>
+                        <small id="nikError" class="text-red-500 hidden">NIK tidak valid atau tidak ditemukan.</small>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>No. KK</label>
+                        <input type="text" class="form-control border-gray-300 rounded-lg" placeholder="Masukkan 16 Digit No.KK">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Nama</label>
+                        <input type="text" class="form-control border-gray-300 rounded-lg" placeholder="Nama Lengkap">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Kegunaan</label>
+                        <textarea class="form-control border-gray-300 rounded-lg" placeholder="Kegunaan"></textarea>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Surat Pengantar</label>
+                        <input type="file" class="form-control border-gray-300 rounded-lg">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
+                        <img src="{{ asset('images/save changes.png') }}" alt="Save Changes" class="w-6 h-6"> 
+                    </button>
+                </form>
             </div>
         </div>
-    </div>
 
-    @include('modals.sk-add-modal')
+<script>
+    document.getElementById('searchNikBtn').addEventListener('click', function() {
+        const nikInput = document.getElementById('nikInput').value;
+        const nikError = document.getElementById('nikError');
+
+        if (nikInput.length !== 16 || isNaN(nikInput)) {
+            nikError.textContent = 'NIK harus terdiri dari 16 digit angka.';
+            nikError.classList.remove('hidden');
+            return;
+        }
+
+        nikError.classList.add('hidden');
+
+        // Simulasi pencarian (replace dengan AJAX/Fetch API jika ada backend)
+        fetch(`/api/cari-nik/${nikInput}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('NIK tidak ditemukan.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert(`Data ditemukan: Nama: ${data.nama}, No KK: ${data.noKK}`);
+                // Isi formulir dengan data hasil pencarian
+            })
+            .catch(error => {
+                nikError.textContent = error.message;
+                nikError.classList.remove('hidden');
+            });
+    });
+</script>
+@endsection
 
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -63,35 +63,23 @@
         <!-- Panduan Mengakses E-SUKET -->
         <div class="col-md-6 mb-3">
             <div class="bg-white p-4 rounded shadow-sm text-center" style="border: 2px solid #E1E1E1;">
-        <h5>
-            <span class="me-2" style="background-color: #A3936F; border-radius: 50%; padding: 8px;">
-                <i class="bi bi-camera-video text-white"></i>
-            </span>
-            Panduan Mengakses E-SUKET
-            </h5>
-            <div class="d-flex justify-content-center mt-3">
-            <!-- Kotak Panduan Kosong -->
-            <div class="mx-2 content-box"></div>
-            <div class="mx-2 content-box"></div>
+                <h5>
+                    <span class="me-2" style="background-color: #A3936F; border-radius: 50%; padding: 8px;">
+                        <i class="bi bi-camera-video text-white"></i>
+                    </span>
+                    Panduan Mengakses E-SUKET
+                </h5>
+        <!-- Space kosong untuk diisi konten -->
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="video-container mx-2" style="width: 150px; height: 100px; background-color: #F9F9F9; border-radius: 10px; overflow: hidden;">
+                <iframe width="150" height="100" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-container mx-2" style="width: 150px; height: 100px; background-color: #F9F9F9; border-radius: 10px; overflow: hidden;">
+                <iframe width="150" height="100" src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-
-    <style>
-    .content-box {
-        width: 150px;
-        height: 100px;
-        background: #f8f8f8; /* Warna abu muda */
-        border-radius: 10px;
-        border: 2px dashed #ccc; /* Border putus-putus */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #aaa;
-        font-size: 14px;
-        font-weight: bold;
-    }
-    </style>
+</div>
 
 
         <!-- Profil -->
