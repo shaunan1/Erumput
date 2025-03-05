@@ -79,11 +79,9 @@
                 <li>Surat Pengantar dari RT/RW</li>
                 <li>Pas Foto ukuran 3x4 cm</li>
             </ol>
-                <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
-                    <img src="{{ asset('images/Ajukan.png') }}" alt="Ajukan" class="w-6 h-6"> 
-                </button>
-            </div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#skbnaddmodal">Ajukan</button>
         </div>
+    </div>
 
     <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog">

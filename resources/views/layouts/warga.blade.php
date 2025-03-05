@@ -80,10 +80,16 @@
                             Ajukan Surat
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{{ route('skbn.warga') }}">Surat Keterangan Belum Menikah</a></li>
-                            <li><a class="dropdown-item" href="{{ route('skhsl.warga') }}">Surat Keterangan Penghasilan</a></li>
-                            <li><a class="dropdown-item" href="{{ route('sktm.warga') }}">Surat Keterangan Miskin</a></li>
-                            <li><a class="dropdown-item" href="{{ route('skboro.warga') }}">Surat Keterangan Boro</a></li>
+                        <li><a class="dropdown-item" href="{{ route('skbn.warga') }}">Surat Keterangan Belum Menikah</a></li>
+                        <li><a class="dropdown-item" href="{{ route('skhsl.warga') }}">Surat Keterangan Penghasilan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('sktm.warga') }}">Surat Keterangan Miskin</a></li>
+                        <li><a class="dropdown-item" href="{{ route('skboro.warga') }}">Surat Keterangan Boro</a></li>
+                        <li><a class="dropdown-item" href="{{ route('skkelahiran.warga') }}">Surat Keterangan Kelahiran</a></li>
+                        <li><a class="dropdown-item" href="{{ route('skkematian.warga') }}">Surat Keterangan Kematian</a></li>
+                        <li><a class="dropdown-item" href="{{ route('skdom.warga') }}">Surat Keterangan Domisili</a></li>
+                        <li><a class="dropdown-item" href="{{ route('skusaha.warga') }}">Surat Keterangan Usaha</a></li>
+                        <li><a class="dropdown-item" href="{{ route('suket.warga') }}">Surat Keterangan</a></li>
+
                         </ul>
                     </li>
                 </ul>

@@ -13,11 +13,11 @@
 <div class="d-flex flex-column justify-content-center align-items-center text-white pt-5 text-center" 
      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 600px;">
     <h1 class="fw-bold" 
-        style="font-family: 'Times New Roman', serif; font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); letter-spacing: 2px;">
+        style="font-family: 'Times New Roman', serif; font-size: 3.5rem; text-shadow: 2px 2px 4px rgb(255, 255, 255); letter-spacing: 2px;">
         SELAMAT DATANG
     </h1>
     <h2 class="fw-bold" 
-        style="font-family: 'Georgia', serif; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); letter-spacing: 1.5px; 
+        style="font-family: 'Georgia', serif; font-size: 2.5rem; text-shadow: 2px 2px 4px rgb(0, 0, 0); letter-spacing: 1.5px; 
                max-width: 100%; overflow-wrap: break-word; word-break: break-word;">
         {{ auth()->user()->name }}
     </h2>
@@ -83,17 +83,18 @@
 
 
         <!-- Profil -->
-        <div class="col-md-4">
-            <div class="p-3 bg-white rounded shadow-sm text-center" style="border: 2px solid #E1E1E1;">
-                <div class="mb-3" style="width: 100px; height: 130px; background: url('https://via.placeholder.com/100x130') center center / cover; border-radius: 10px; margin: 0 auto; border: 1px solid #E1E1E1;"></div>
-                <div class="p-2 rounded" style="background-color: #F8F8F8; border: 1px solid #E1E1E1;">
-                <p class="mb-0 fw-bold">{{ auth()->user()->nik }}</p>
-                    <small class="text-muted">Nomor Induk Kependudukan</small>
-                </div>
-                <h5 class="mt-3 fw-bold text-uppercase">{{ auth()->user()->name }}</h5>
-                <p class="text-muted mb-0">Kelurahan</p>
-            </div>
+<div class="col-md-4">
+    <div class="p-3 bg-white rounded shadow-sm text-center" style="border: 2px solid #E1E1E1;">
+        <div class="mb-3" style="width: 100px; height: 130px; background: url('https://via.placeholder.com/100x130') center center / cover; border-radius: 10px; margin: 0 auto; border: 1px solid #E1E1E1;"></div>
+        <div class="p-2 rounded" style="background-color: #F8F8F8; border: 1px solid #E1E1E1;">
+            <p class="mb-0 fw-bold">{{ auth()->user()->nik }}</p>
+            <small class="text-muted">Nomor Induk Kependudukan</small>
         </div>
+        <h5 class="mt-3 fw-bold text-uppercase">{{ auth()->user()->name }}</h5>
+        <p class="text-muted mb-0">{{ auth()->user()->kelurahan->nama_kelurahan ?? 'Kelurahan tidak tersedia' }}</p>
+    </div>
+</div>
+
     </div>
 </section>
 <!-- MENU SURAT KETERANGAN -->
