@@ -62,11 +62,14 @@
         
         <div class="tab-pane fade" id="deskripsi">
             <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN BELUM MENIKAH</h3>
-            <p>Surat Keterangan Belum Menikah adalah surat yang menerangkan belum pernah menikah alias berstatus lajang.</p>
-            <p><strong>Output:</strong> <span id="output"></span></p>
+                <p>Surat Keterangan Belum Menikah adalah dokumen resmi yang dikeluarkan oleh pemerintah, yang menerangkan bahwa pemohon berstatus belum menikah alias lajang. Surat ini sering dibutuhkan untuk keperluan administratif seperti pendaftaran pernikahan, pekerjaan, atau beasiswa.</p>
+                <p>Untuk mendapatkan surat ini, pemohon harus memenuhi persyaratan tertentu dan melampirkan dokumen pendukung seperti fotokopi KTP, Kartu Keluarga, dan surat pengantar dari RT/RW.</p>
+                <p><strong>Output:</strong> <span id="output"></span></p>
             <p><strong>Masa berlaku:</strong> <span id="masaBerlaku"></span> tahun</p>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
-        </div>
+                    <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
+                        <img src="{{ asset('images/Ajukan.png') }}" alt="Ajukan" class="w-6 h-6"> 
+                    </button>
+                </div>
 
         <div class="tab-pane fade" id="persyaratan">
             <h3 class="fw-bold">PERSYARATAN PENGAJUAN</h3>
@@ -74,12 +77,13 @@
                 <li>Fotokopi KTP</li>
                 <li>Fotokopi Kartu Keluarga</li>
                 <li>Surat Pengantar dari RT/RW</li>
-                <li>Surat Pernyataan Belum Menikah yang ditandatangani</li>
                 <li>Pas Foto ukuran 3x4 cm</li>
             </ol>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
+                <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
+                    <img src="{{ asset('images/Ajukan.png') }}" alt="Ajukan" class="w-6 h-6"> 
+                </button>
+            </div>
         </div>
-    </div>
 
     <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog">

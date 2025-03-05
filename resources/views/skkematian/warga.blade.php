@@ -64,8 +64,7 @@
         
         <div class="tab-pane fade" id="deskripsi">
             <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN KEMATIAN</h3>
-            <p>Surat Keterangan Kematian adalah </p>
-            <p><strong>Output:</strong> <span id="output"></span></p>
+            <p>Surat Keterangan Kematian adalah dokumen resmi yang menerangkan kematian seseorang. Surat ini diperlukan untuk administrasi seperti klaim asuransi atau pencatatan sipil.</p>            <p><strong>Output:</strong> <span id="output"></span></p>
             <p><strong>Masa berlaku:</strong> <span id="masaBerlaku"></span> tahun</p>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
         </div>
@@ -73,15 +72,17 @@
         <div class="tab-pane fade" id="persyaratan">
             <h3 class="fw-bold">PERSYARATAN PENGAJUAN</h3>
             <ol>
-                <li>Fotokopi KTP</li>
+                <li>Fotokopi KTP almarhum</li>
                 <li>Fotokopi Kartu Keluarga</li>
-                <li>Surat Pengantar dari RT/RW</li>
-                <li>Pas Foto ukuran 3x4 cm</li>
+                <li>Surat keterangan kematian dari rumah sakit</li>
+                <li>Surat pengantar dari RT/RW</li>
             </ol>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
+            <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
+                    <img src="{{ asset('images/Ajukan.png') }}" alt="Ajukan" class="w-6 h-6"> 
+                </button>
+            </div>
         </div>
-    </div>
-
+        
     <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

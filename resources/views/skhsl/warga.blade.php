@@ -64,8 +64,7 @@
         
         <div class="tab-pane fade" id="deskripsi">
             <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN PENGHASILAN</h3>
-            <p>Surat Keterangan Penghasilan adalah </p>
-            <p><strong>Output:</strong> <span id="output"></span></p>
+            <p>Surat Keterangan Penghasilan adalah dokumen resmi yang menerangkan besaran penghasilan pemohon. Surat ini sering digunakan untuk keperluan seperti pengajuan beasiswa atau pinjaman.</p>            <p><strong>Output:</strong> <span id="output"></span></p>
             <p><strong>Masa berlaku:</strong> <span id="masaBerlaku"></span> tahun</p>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
         </div>
@@ -75,13 +74,14 @@
             <ol>
                 <li>Fotokopi KTP</li>
                 <li>Fotokopi Kartu Keluarga</li>
-                <li>Surat Pengantar dari RT/RW</li>
-                <li>Pas Foto ukuran 3x4 cm</li>
+                <li>Surat keterangan penghasilan dari tempat kerja</li>
             </ol>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Ajukan</button>
+            <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
+                    <img src="{{ asset('images/Ajukan.png') }}" alt="Ajukan" class="w-6 h-6"> 
+                </button>
+            </div>
         </div>
-    </div>
-
+        
     <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
