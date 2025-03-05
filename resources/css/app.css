@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Pastikan sidebar dapat mengikuti tinggi konten */
+.sidebar {
+    height: 100vh; /* Membuat sidebar mengikuti tinggi layar */
+    overflow-y: auto; /* Sidebar bisa di-scroll jika terlalu panjang */
+    position: fixed; /* Sidebar tetap di tempat */
+    left: 0;
+    top: 0;
+    width: 250px; /* Sesuaikan ukuran */
+    background: #fff; /* Warna latar belakang */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Pastikan konten utama tidak tertutup */
+.main-content {
+    margin-left: 260px; /* Beri ruang untuk sidebar */
+    padding: 20px;
+}

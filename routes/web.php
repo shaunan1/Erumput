@@ -195,3 +195,15 @@ Route::post('/profile/update-photo', [ProfileController::class, 'updatePhoto'])-
 use App\Http\Controllers\BeritaController;
 
 Route::get('/warga', [BeritaController::class, 'getBerita']);
+
+Route::get('/sktm', [SktmController::class, 'index'])->name('sktm.index');
+Route::get('/skbn', [SkbnController::class, 'index'])->name('skbn.index');
+Route::get('/skboro', [SkboroController::class, 'index'])->name('skboro.index');
+Route::get('/skdom', [SkdomController::class, 'index'])->name('skdom.index');
+Route::get('/skhsl', [SkhslController::class, 'index'])->name('skhsl.index');
+Route::get('/skkelahiran', [SkkelahiranController::class, 'index'])->name('skkelahiran.index');
+Route::get('/skkematian', [SkkematianController::class, 'index'])->name('skkematian.index');
+Route::get('/skusaha', [SkusahaController::class, 'index'])->name('skusaha.index');
+Route::get('/suket', [SuketController::class, 'index'])->name('suket.index');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

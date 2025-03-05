@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.warga')
 
 @section('content')
 <div class="container mt-4">
@@ -90,17 +90,22 @@
                             <input type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Password Anda">
                         </div>
 
-                        <!-- Tombol Edit & Simpan -->
                         <div class="text-end">
-                            <a href="{{ route('profile.edit') }}" class="btn btn-gold">Edit</a>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+    <!-- Tombol Edit & Simpan -->
+    <a href="{{ route('profile.edit') }}" class="btn btn-gold">Edit</a>
+    <button type="submit" class="btn btn-primary">Simpan</button>
+</div>
+</form> <!-- Tutup Form Edit Profil -->
+
+<!-- Form Logout yang Terpisah -->
+<form method="POST" action="{{ route('logout') }}" class="text-end mt-2">
+    @csrf
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+
+                                </div>
+                            </form>
                         </div>
-                        <!-- Tombol Logout -->
-                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                            @csrf
-                        <button type="submit" class="btn btn-danger ms-2">Logout</button>
-                        </form>
-                    </div>div>
                     </form>
                 </div>
             </div>

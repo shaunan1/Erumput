@@ -81,7 +81,7 @@
             <div class="p-3 bg-white rounded shadow-sm text-center" style="border: 2px solid #E1E1E1;">
                 <div class="mb-3" style="width: 100px; height: 130px; background: url('https://via.placeholder.com/100x130') center center / cover; border-radius: 10px; margin: 0 auto; border: 1px solid #E1E1E1;"></div>
                 <div class="p-2 rounded" style="background-color: #F8F8F8; border: 1px solid #E1E1E1;">
-                    <p class="mb-0 fw-bold">3571xxxxxxxxxxxx</p>
+                <p class="mb-0 fw-bold">{{ auth()->user()->nik }}</p>
                     <small class="text-muted">Nomor Induk Kependudukan</small>
                 </div>
                 <h5 class="mt-3 fw-bold text-uppercase">{{ auth()->user()->name }}</h5>
