@@ -191,3 +191,7 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile/update-photo', [ProfileController::class, 'updatePhoto'])->name('profile.update-photo');
 });
+
+use App\Http\Controllers\BeritaController;
+
+Route::get('/warga', [BeritaController::class, 'getBerita']);

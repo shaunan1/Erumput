@@ -54,155 +54,7 @@
     </div>
 </section>
 
-<!-- SECTION PENCAPAIAN, INFORMASI, KEGIATAN, GALERI -->
-<section class="py-5" style="background-color: #FFFFFF; height: 100vh; display: flex; align-items: center;">
-    <div class="container text-center">
-        <h2 class="mb-4 fw-bold text-uppercase" style="color: #A67C52;">Pencapaian, Informasi, Kegiatan, dan Galeri</h2>
-        
-        <div class="carousel slide position-relative" id="horizontalCarousel" data-bs-ride="carousel">
-            <div class="carousel-inner shadow-lg rounded-4">
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const carousel = document.querySelector('#horizontalCarousel');
-        const carouselItems = carousel.querySelectorAll('.carousel-item');
-
-        carouselItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                switch (index) {
-                    case 0: // Slide "Pencapaian"
-                        window.location.href = '#pencapaian'; // Ganti dengan link halaman pencapaian
-                        break;
-                    case 1: // Slide "Informasi"
-                        window.location.href = '#informasi'; // Ganti dengan link halaman informasi
-                        break;
-                    case 2: // Slide "Kegiatan"
-                        window.location.href = '#kegiatan'; // Ganti dengan link halaman kegiatan
-                        break;
-                    case 3: // Slide "Galeri"
-                        window.location.href = '#galeri'; // Ganti dengan link halaman galeri
-                        break;
-                }
-            });
-        });
-    });
-</script>
-
-                <!-- Slide 1: PENCAPAIAN -->
-                <div class="carousel-item active">
-                <h4 class="mb-4 fw-semibold" style="color: #A67C52;">Pencapaian</h4>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="{{ url('/pencapaian') }}" class="content-box"></a>
-                    <a href="{{ url('/pencapaian') }}" class="content-box light"></a>
-                    <a href="{{ url('/pencapaian') }}" class="content-box"></a>
-                </div>
-                </div>
-
-
-                <!-- Slide 2: INFORMASI -->
-                    <div class="carousel-item">
-                        <h4 class="mb-4 fw-semibold" style="color: #A67C52;">Informasi</h4>
-                        <div class="d-flex justify-content-center gap-3">
-                            <a href="{{ url('/informasi') }}" class="content-box light"></a>
-                            <a href="{{ url('/informasi') }}" class="content-box"></a>
-                            <a href="{{ url('/informasi') }}" class="content-box light"></a>
-                        </div>
-                    </div>
-
-            <!-- Slide 3: KEGIATAN -->
-                <div class="carousel-item">
-                <h4 class="mb-4 fw-semibold" style="color: #A67C52;">Kegiatan</h4>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="{{ url('/kegiatan') }}" class="content-box"></a>
-                    <a href="{{ url('/kegiatan') }}" class="content-box light"></a>
-                    <a href="{{ url('/kegiatan') }}" class="content-box"></a>
-                    </div>
-                </div>
-
-            <!-- Slide 4: GALERI -->
-                <div class="carousel-item">
-                <h4 class="mb-4 fw-semibold" style="color: #A67C52;">Galeri</h4>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="{{ url('/galeri') }}" class="content-box light"></a>
-                    <a href="{{ url('/galeri') }}" class="content-box"></a>
-                    <a href="{{ url('/galeri') }}" class="content-box light"></a>
-                </div>
-                </div>
-
-            </div>
-
-            <!-- Navigasi Carousel di Tengah Pinggir -->
-            <button class="carousel-control-prev custom-nav" type="button" data-bs-target="#horizontalCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next custom-nav" type="button" data-bs-target="#horizontalCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- CSS untuk Tampilan dengan Navigasi Tengah Pinggir -->
-<style>
-    /* Background utama putih */
-    section {
-        background: #FFFFFF;
-    }
-
-    /* Box konten */
-    .content-box {
-        width: 260px;
-        height: 190px;
-        background: #F3E5D0;
-        border-radius: 20px;
-        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-        border: 3px solid #A67C52;
-    }
-
-    .content-box.light {
-        background: #E8D8C3;
-    }
-
-    .content-box:hover {
-        transform: scale(1.05);
-        box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Tombol Navigasi di Tengah Pinggir */
-    .custom-nav {
-        width: 55px;
-        height: 55px;
-        background-color: #A67C52;
-        border-radius: 50%;
-        opacity: 0.85;
-        transition: opacity 0.3s;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .custom-nav:hover {
-        opacity: 1;
-    }
-
-    .carousel-control-prev {
-        left: -60px; /* Menggeser tombol kiri ke luar carousel */
-    }
-
-    .carousel-control-next {
-        right: -60px; /* Menggeser tombol kanan ke luar carousel */
-    }
-
-    .carousel-inner {
-        background: #FAF6F0;
-        padding: 30px;
-        border-radius: 15px;
-    }
-</style>
-
-
-
+@include('berita.index')
 
 
 <!-- PANDUAN & PROFIL -->
@@ -238,27 +90,26 @@
         </div>
     </div>
 </section>
-
 <!-- MENU SURAT KETERANGAN -->
 <section class="container py-4">
     <div class="row g-3">
         @php
             $surat = [
-                27 => 'belumnikah',
-                31 => 'miskin',
-                32 => 'boro',
-                29 => 'penghasilan',
-                30 => 'keterangan',
-                28 => 'kelahiran',
-                33 => 'domisili',
-                34 => 'usaha',
-                35 => 'kematian'
+                27 => 'skbn',
+                31 => 'skkelahiran',
+                32 => 'skkematian',
+                29 => 'sktm',
+                30 => 'skboro',
+                28 => 'skhsl',
+                33 => 'skusaha',
+                34 => 'skdom',
+                35 => 'suket'
             ];
         @endphp
 
         @foreach($surat as $id => $jenis)
         <div class="col-md-4 d-flex justify-content-center">
-            <a href="{{ url('/logsurat/'.$jenis) }}" class="btn btn-light shadow-sm w-100">
+            <a href="{{ url('/warga/'.$jenis) }}" class="btn btn-light shadow-sm w-100">
                 <img src="{{ asset('images/component'.$id.'.png') }}" class="img-fluid rounded" alt="Surat Keterangan">
             </a>
         </div>
