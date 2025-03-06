@@ -60,26 +60,32 @@
                 </button>
             </div>
             <br>
-            <div class="card card-body">
-                <div class="table-responsive">
-                    <table id="tableSurat" class="table table-hover" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>No Surat</th>
-                                <th>NIK</th>
-                                <th>Tanggal</th>
-                                <th>Peruntukan</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                    </table>
+          
+        <div class="progress-bar">
+            <div class="step active">
+                <div class="icon">
+                    <img src="{{ asset('images/diajukan.png') }}" alt="Diajukan" style="width: 50px; height: 50px;">
                 </div>
+                      <p>Diajukan</p>
+                <div class="timestamp" id="timestamp-diajukan"></div>
+            </div>
+                <div class="step">
+                <div class="icon">
+                    <img src="{{ asset('images/diproses.png') }}" alt="Diproses" style="width: 50px; height: 50px;">
+            </div>
+                    <p>Diproses</p>
+                <div class="timestamp" id="timestamp-diproses"></div>
+            </div>
+                <div class="step">
+                <div class="icon">
+                    <img src="{{ asset('images/disetujui.png') }}" alt="Disetujui" style="width: 50px; height: 50px;">
+            </div>
+                    <p>Disetujui</p>
+                <div class="timestamp" id="timestamp-disetujui"></div>
             </div>
         </div>
 
-        <div class="tab-pane fade" id="deskripsi">
+<div class="tab-pane fade" id="deskripsi">
     <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN BELUM MENIKAH</h3>
     <p>Surat Keterangan Belum Menikah (SKBN) adalah surat resmi yang menerangkan bahwa pemohon belum pernah menikah dan masih berstatus lajang. Surat ini sering digunakan untuk berbagai keperluan administratif, seperti syarat pernikahan, melamar pekerjaan, pendaftaran beasiswa, atau keperluan hukum lainnya.</p>
     <p><strong>Output:</strong> Surat Keterangan Belum Menikah dalam bentuk fisik maupun digital</p>
