@@ -211,7 +211,7 @@
                 </ul>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('warga') }}" class="sidebar-link">
+                
                         <i class="ri-user-shared-fill"></i>
                         <span>Masuk Sebagai Warga</span>
                     </a>

@@ -75,4 +75,11 @@ class User extends Authenticatable
     {
     return $this->belongsTo(Regional::class, 'kelurahan_id', 'id');
     }
+    
 }
+
+
+
+
+
+

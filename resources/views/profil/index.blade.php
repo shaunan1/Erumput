@@ -5,8 +5,8 @@
     <div class="card profile-card">
         <div class="card-body">
             <!-- Tombol Kembali -->
-            <a href="{{ url()->previous() }}" class="btn btn-link kembali-btn">
-                <i class="bi bi-arrow-left"></i> Kembali
+            <a href="javascript:void(0);" onclick="goBack()" class="btn btn-secondary btn-sm d-flex align-items-center gap-2 justify-content-center" style="width: 120px;">
+            <i class="bi bi-arrow-left"></i> <span>Kembali</span>
             </a>
 
             <!-- Judul Profil -->
@@ -91,17 +91,44 @@
                         </div>
 
                         <div class="text-end">
-    <!-- Tombol Edit & Simpan -->
-    <a href="{{ route('profile.edit') }}" class="btn btn-gold">Edit</a>
-    <button type="submit" class="btn btn-primary">Simpan</button>
-</div>
-</form> <!-- Tutup Form Edit Profil -->
+    <!-- Tombol Edit -->
+<a href="{{ route('profile.edit') }}" class="btn-icon">
+    <img src="{{ asset('assets/edit.png') }}" alt="Edit" class="icon-size">
+</a>
 
-<!-- Form Logout yang Terpisah -->
-<form method="POST" action="{{ route('logout') }}" class="text-end mt-2">
+<!-- Tombol Simpan -->
+<button type="submit" class="btn-icon">
+    <img src="{{ asset('assets/simpan.png') }}" alt="Simpan" class="icon-size">
+</button>
+</form> <!-- Tutup Form Edit Profil -->
+<style>
+    .btn-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .btn-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .icon-size {
+        width: 150px; /* Sesuaikan ukuran ikon */
+        height: auto;
+    }
+</style>
+
+<!-- Form Logout dengan Ikon dan Teks -->
+<form method="POST" action="{{ route('logout') }}" class="d-flex justify-content-end mt-2">
     @csrf
-    <button type="submit" class="btn btn-danger">Logout</button>
+    <button type="submit" class="btn btn-light d-flex align-items-center gap-2">
+        <img src="{{ asset('images/logout.png') }}" alt="Logout" style="width: 40px; height: 40px;">
+        <span class="text-danger fw-bold">Log out</span>
+    </button>
 </form>
+
 
                                 </div>
                             </form>
@@ -182,5 +209,13 @@ function previewFileInModal() {
         reader.readAsDataURL(file);
     }
 }
+
+function goBack() {
+        if (document.referrer) {
+            window.history.back();
+        } else {
+            window.location.href = "{{ url()->previous() }}";
+        }
+    }
 </script>
 @endsection

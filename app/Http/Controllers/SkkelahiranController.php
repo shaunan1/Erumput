@@ -13,6 +13,7 @@ use App\Models\Pejabat;
 use App\Models\Resident;
 use App\Models\SuratKelahiran;
 use App\Models\User;
+use App\Models\Warga;
 use App\Traits\GetNoSurat;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -493,4 +494,14 @@ class SkkelahiranController extends Controller
             return response()->json(['message' => 'Data updated failed.']);
         }
     }
+
+    public function warga() // ✅ Pastikan method ini ada
+    {
+        $data = User::all(); // Mengambil semua data user dari database
+        return view('skkelahiran.warga', compact('data')); // Pastikan ada file view ini
+    }
+
+    
+
+    
 }

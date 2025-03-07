@@ -17,9 +17,12 @@ use App\Http\Controllers\SktmController;
 use App\Http\Controllers\SkusahaController;
 use App\Http\Controllers\SuketController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\User; 
 
 // Route::get('/', function () {
 //     return view('home', ['title' => 'Dashboard']);
@@ -27,19 +30,36 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    if (auth()->check()) {
-        if (auth()->user()->role_id == 2){
-            return redirect()->route('warga');
+    Route::get('/', function () {
+        if (auth()->check()) {
+            if (auth()->user()->role_id == 2){
+                return redirect()->route('warga');
+            }
+            else {
+                return redirect()->route('home');
+            }
         }
-        else {
-            return redirect()->route('home');
-        }
-    }
-    return redirect()->route('login');
-    // return view('welcome');
+        return redirect()->route('login');
+        // return view('welcome');
 
     
+});
+
+Route::get('/search-nik', function (Request $request) {
+    $nik = $request->query('nik');
+    $user = User::where('nik', $nik)->first();
+
+    if ($user) {
+        return response()->json([
+            'status' => 'success',
+            'data' => $user
+        ]);
+    } else {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'NIK tidak ditemukan'
+        ]);
+    }
 });
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 Route::get('/activity', [HomeController::class, 'activity'])->name('activity');
@@ -86,6 +106,8 @@ Route::prefix('warga')->group(function(){
     Route::post('/skbn', [SkbnController::class, 'save'])->name('skbn.save');
     Route::get('/skboro', [SkboroController::class, 'warga'])->name('skboro.warga');
     Route::post('/skboro', [SkboroController::class, 'save'])->name('skboro.save');
+    Route::get('/skkelahiran    ', [SkkelahiranController::class, 'warga'])->name('skkelahiran.warga');
+    Route::get('/skkematian    ', [SkkematianController::class, 'warga'])->name('skkematian.warga');
 });
 
 Route::middleware(['auth', 'role:1,3,4'])->prefix('sktm')->group(function(){
@@ -192,7 +214,7 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::post('/profile/update-photo', [ProfileController::class, 'updatePhoto'])->name('profile.update-photo');
 });
 
-use App\Http\Controllers\BeritaController;
+Route::get('/warga', [WargaController::class, 'index'])->name('warga');
 
 Route::get('/warga', [BeritaController::class, 'getBerita']);
 
@@ -207,3 +229,6 @@ Route::get('/skusaha', [SkusahaController::class, 'index'])->name('skusaha.index
 Route::get('/suket', [SuketController::class, 'index'])->name('suket.index');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/skkelahiran.warga', [SkkelahiranController::class, 'warga']);
+

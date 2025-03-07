@@ -72,7 +72,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="btn btn-custom" href="{{ url('/') }}">Beranda</a>
+                        <a class="btn btn-custom" href="{{ url('/warga') }}">Beranda</a>
                     </li>
                     <!-- Dropdown Ajukan Surat -->
                     <li class="nav-item dropdown">

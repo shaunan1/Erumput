@@ -13,6 +13,7 @@ use App\Models\Pejabat;
 use App\Models\Resident;
 use App\Models\SuratKematian;
 use App\Models\User;
+use App\Models\Warga;
 use App\Traits\GetNoSurat;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -448,5 +449,9 @@ class SkkematianController extends Controller
         } else {
             return response()->json(['message' => 'Data updated failed.']);
         }
+    }
+    public function warga()
+    {
+        return view('skkematian.warga'); // Sesuaikan dengan nama view yang benar
     }
 }

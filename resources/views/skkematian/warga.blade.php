@@ -1,4 +1,4 @@
-@extends('layouts.warga')
+@extends('layouts.app')
 
 @section('title', 'Surat Keterangan')
 

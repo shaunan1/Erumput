@@ -35,4 +35,4 @@ class BeritaController extends Controller
         // Jika gagal, tampilkan pesan error
         return response()->json(['error' => 'Gagal mengambil data berita'], 500);
     }
-}
+} 

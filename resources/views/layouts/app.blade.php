@@ -52,15 +52,17 @@
         transform: scale(1.05);
     }
 
-            .sidebar {
-                width: 250px;
-                background: #f8f9fa;
-                padding: 20px;
-                height: 100vh;
-                position: fixed;
-                left: 0;
-                top: 60px; /* Adjusted to account for navbar height */
-            }
+    .sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 20px;
+    height: 100vh; /* Pastikan sidebar penuh */
+    position: fixed;
+    left: 0;
+    top: 60px; /* Sesuaikan dengan tinggi navbar */
+    overflow-y: auto; /* Tambahkan scrollbar jika kontennya panjang */
+}
+
 
             .sidebar a {
                 display: block;
@@ -84,6 +86,7 @@
                 margin-left: 250px; /* Adjusted to account for sidebar width */
                 padding: 20px;
                 margin-top: 60px; /* Adjusted to account for navbar height */
+                min-height: 100vh; /* Pastikan kontennya tidak terlalu pendek */
             }
 
             .list-group-item {
@@ -103,13 +106,18 @@
             .list-group-item .badge {
                 border-radius: 3px;
             }
+
+            body {
+                padding-top: 60px; /* Sesuaikan dengan tinggi navbar */
+            }
+
         </style>
     </head>
 
     <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url('/warga') }}">
             <img src="{{ asset('assets/esuket.png') }}" alt="E-SUKET Logo" height="30">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -119,7 +127,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item mx-2">
-                    <a class="btn btn-custom" href="{{ url('/') }}">Beranda</a>
+                    <a class="btn btn-custom" href="{{ url('/warga') }}">Beranda</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="btn btn-custom" href="#">Ajukan Surat</a>
@@ -129,7 +137,7 @@
         <div class="d-flex align-items-center">
             @auth
                 <a class="btn btn-outline-secondary profile-btn" href="{{ route('profile') }}">
-                <img src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('assets/default-profile.png') }}" 
+                <img src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('assets/profil.png') }}" 
                 alt="{{ Auth::user()->name }}" height="30" class="me-2">
 
                 </a>
@@ -138,7 +146,7 @@
                     Masuk
                 </a>
             @endauth
-        </div>
+        </div>  
     </div>
 </nav>
 
@@ -173,24 +181,24 @@
             <img src="{{ asset('images/component30.png') }}" alt="Surat Keterangan Boro" class="img-fluid rounded me-2" width="30">
             
         </a>
-        <a href="{{ route('skkelahiran.warga') }}" 
-           class="list-group-item d-flex align-items-center {{ request()->is('skkelahiran') ? 'active' : '' }}">
-            <img src="{{ asset('images/component31.png') }}" alt="Surat Keterangan Kelahiran" class="img-fluid rounded me-2" width="30">
+        <a href="{{ route('skdom.warga') }}" 
+           class="list-group-item d-flex align-items-center {{ request()->is('skdom') ? 'active' : '' }}">
+            <img src="{{ asset('images/component34.png') }}" alt="Surat Keterangan Domisili" class="img-fluid rounded me-2" width="30">
             
         </a>
         <a href="{{ route('skkelahiran.warga') }}" 
            class="list-group-item d-flex align-items-center {{ request()->is('skkelahiran') ? 'active' : '' }}">
-            <img src="{{ asset('images/component33.png') }}" alt="Surat Keterangan Kelahiran" class="img-fluid rounded me-2" width="30">
+            <img src="{{ asset('images/component31.png') }}" alt="Surat Keterangan Kelahiran" class="img-fluid rounded me-2" width="30">
         
         </a>
         <a href="{{ route('skkematian.warga') }}" 
            class="list-group-item d-flex align-items-center {{ request()->is('skkematian') ? 'active' : '' }}">
-            <img src="{{ asset('images/component34.png') }}" alt="Surat Keterangan Kematian" class="img-fluid rounded me-2" width="30">
+            <img src="{{ asset('images/component32.png') }}" alt="Surat Keterangan Kematian" class="img-fluid rounded me-2" width="30">
             
         </a>
         <a href="{{ route('skusaha.warga') }}" 
            class="list-group-item d-flex align-items-center {{ request()->is('skusaha') ? 'active' : '' }}">
-            <img src="{{ asset('images/component35.png') }}" alt="Surat Keterangan Usaha" class="img-fluid rounded me-2" width="30">
+            <img src="{{ asset('images/component33.png') }}" alt="Surat Keterangan Usaha" class="img-fluid rounded me-2" width="30">
             
         </a>
         <a href="{{ route('suket.warga') }}" 

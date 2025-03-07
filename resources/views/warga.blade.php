@@ -24,12 +24,14 @@
 </div>
 </section>
 
-<div class="text-white text-center py-2" style="margin-top: -4px; background-color:rgb(165, 146, 109);"> 
-    Pelayanan pengesahan dan pengambilan SK Senin - Jumat 08.00 - 15.00 WIB
+<div class="text-center py-2" style="margin-top: -4px; background-color: rgb(165, 146, 109);">
+    <img src="{{ asset('images/Group 298.png') }}" alt="Group 298 Logo" class="img-fluid" style="max-height: 40px;">
 </div>
 
+
+
 <!-- INFORMASI LAYANAN -->
-<section class="py-4" style="background-color: #B8A57E;">
+<section class="py-4" style="background-color: #B8A57E; font-family: 'Kumbh Sans', sans-serif;">
     <div class="container">
         <div class="row align-items-center">
             <!-- Logo & Deskripsi Kiri -->
@@ -54,6 +56,10 @@
     </div>
 </section>
 
+<!-- Tambahkan link Google Fonts di dalam <head> file HTML -->
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
 @include('berita.index')
 
 
@@ -61,25 +67,38 @@
 <section class="container py-4">
     <div class="row justify-content-center align-items-start">
         <!-- Panduan Mengakses E-SUKET -->
-        <div class="col-md-6 mb-3">
-            <div class="bg-white p-4 rounded shadow-sm text-center" style="border: 2px solid #E1E1E1;">
-                <h5>
-                    <span class="me-2" style="background-color: #A3936F; border-radius: 50%; padding: 8px;">
-                        <i class="bi bi-camera-video text-white"></i>
-                    </span>
-                    Panduan Mengakses E-SUKET
-                </h5>
-        <!-- Space kosong untuk diisi konten -->
-        <div class="d-flex justify-content-center align-items-center mt-3">
-            <div class="video-container mx-2" style="width: 150px; height: 100px; background-color: #F9F9F9; border-radius: 10px; overflow: hidden;">
-                <iframe width="150" height="100" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="video-container mx-2" style="width: 150px; height: 100px; background-color: #F9F9F9; border-radius: 10px; overflow: hidden;">
-                <iframe width="150" height="100" src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
-            </div>
+<div class="col-md-6 mb-3">
+    <div class="bg-white p-4 rounded shadow-sm text-center" style="border: 2px solid #E1E1E1;">
+        <h5>
+            <span class="me-2" style="background-color: #A3936F; border-radius: 50%; padding: 8px;">
+                <i class="bi bi-camera-video text-white"></i>
+            </span>
+            Panduan Mengakses E-SUKET
+        </h5>
+        <div class="d-flex justify-content-center mt-3">
+            <!-- Kotak Panduan Kosong -->
+            <div class="mx-2 content-box"></div>
+            <div class="mx-2 content-box"></div>
         </div>
     </div>
 </div>
+
+<style>
+    .content-box {
+        width: 150px;
+        height: 100px;
+        background: #f8f8f8; /* Warna abu muda */
+        border-radius: 10px;
+        border: 2px dashed #ccc; /* Border putus-putus */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #aaa;
+        font-size: 14px;
+        font-weight: bold;
+    }
+</style>
+
 
 
         <!-- Profil -->
@@ -126,9 +145,9 @@
 
 
 <!-- FOOTER -->
-<footer class="py-3" style="background-color: rgb(226, 151, 12);">
+<footer class="py-3" style="background-color: rgb(150, 104, 19);">
     <div class="container d-flex justify-content-between align-items-center text-white">
-        <p class="mb-0">© 2024 Pemerintah Kota Kediri</p>
+        <p class="mb-0">© 2025 Pemerintah Kota Kediri</p>
         <p class="mb-0">Support by <a href="#" class="text-white text-decoration-none">Dinas Komunikasi dan Informatika Kota Kediri</a></p>
     </div>
 </footer>
