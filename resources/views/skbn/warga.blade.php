@@ -61,28 +61,143 @@
             </div>
             <br>
           
-            <div class="container">
-        <div class="title">Surat Ket. Belum Menikah</div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f9fafb;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #5c7cfa;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: #d1d5db;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        .step {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .step .icon {
+            background: #e0f2fe;
+            border: 2px solid #93c5fd;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        .step.active .icon {
+            background: #bfdbfe;
+            border-color: #2563eb;
+        }
+
+        .step img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .step p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+
+        .step .timestamp {
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .button-container img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .button-container img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Surat Keterangan Belum Menikah</div>
         <div class="subtitle" id="nomor-surat">No. Surat: </div>
 
         <div class="progress-bar">
             <div class="step" id="step-diajukan">
                 <div class="icon">
-                    <img src="images/diajukan.png" alt="Diajukan">
+                    <img src="{{ asset('images/diajukan.png') }}" alt="Diajukan">
                 </div>
                 <p>Diajukan</p>
                 <div class="timestamp" id="timestamp-diajukan"></div>
             </div>
             <div class="step" id="step-diproses">
                 <div class="icon">
-                    <img src="images/diproses.png" alt="Diproses">
+                    <img src="{{ asset('images/diproses.png') }}" alt="Diproses">
                 </div>
                 <p>Diproses</p>
                 <div class="timestamp" id="timestamp-diproses"></div>
             </div>
             <div class="step" id="step-disetujui">
                 <div class="icon">
-                    <img src="images/disetujui.png" alt="Disetujui">
+                    <img src="{{ asset('images/disetujui.png') }}" alt="Disetujui">
                 </div>
                 <p>Disetujui</p>
                 <div class="timestamp" id="timestamp-disetujui"></div>
@@ -90,9 +205,9 @@
         </div>
 
         <div class="button-container">
-            <img src="images/Hapus.png" alt="Hapus" title="Hapus">
-            <img src="images/Hapus.png" alt="Lihat" title="Lihat">
-            <img src="images/Cetak Surat.png" alt="Cetak Surat" title="Cetak Surat">
+            <img src="{{ asset('images/Hapus.png') }}" alt="Hapus" title="Hapus">
+            <img src="{{ asset('images/Lihat.png') }}" alt="Lihat" title="Lihat">
+            <img src="{{ asset('images/Cetak Surat.png') }}" alt="Cetak Surat" title="Cetak Surat">
         </div>
     </div>
 
