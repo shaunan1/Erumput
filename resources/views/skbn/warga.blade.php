@@ -217,7 +217,7 @@
           
             <div class="status-card">
     <div class="status-header">
-        <h3>Surat Keterangan Kelahiran</h3>
+        <h3>Surat Keterangan Belum Menikah</h3>
         <span id="no-surat">No. Surat: 00000000000000</span>
     </div>
 
@@ -251,31 +251,29 @@
     </div>
 </div>
     
-<div class="tab-pane fade" id="deskripsi">
-    <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN BELUM MENIKAH</h3>
-    <p>Surat Keterangan Belum Menikah (SKBN) adalah surat resmi yang menerangkan bahwa pemohon belum pernah menikah dan masih berstatus lajang. Surat ini sering digunakan untuk berbagai keperluan administratif, seperti syarat pernikahan, melamar pekerjaan, pendaftaran beasiswa, atau keperluan hukum lainnya.</p>
-    <p><strong>Output:</strong> Surat Keterangan Belum Menikah dalam bentuk fisik maupun digital</p>
-    <p><strong>Masa berlaku:</strong> 6 bulan sejak tanggal penerbitan</p>
-    <p><strong>Penerbit:</strong> Kantor Kelurahan atau Desa setempat</p>
-    <p><strong>Proses Pengajuan:</strong> Pemohon harus melengkapi persyaratan dan mengajukan permohonan di kantor kelurahan atau secara daring (jika tersedia).</p>
-</div>
+    <div class="tab-pane fade" id="deskripsi">
+            <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN BELUM MENIKAH</h3>
+            <p>Surat Keterangan Belum Menikah adalah sebuah dokumen resmi yang menyatakan bahwa seseorang belum pernah menikah dan berstatus lajang.</p>
+            <p><strong>Output:</strong> <span id="output"></span></p>
+            <p><strong>Masa berlaku:</strong> <span id="masaBerlaku"></span> tahun</p>
+                    <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
+                        <img src="{{ asset('images/Ajukan.png') }}" alt="Ajukan" class="w-6 h-6"> 
+                    </button>
+                </div>
 
-<div class="tab-content"></div>
-<div class="tab-pane fade" id="persyaratan">
-    <h3 class="fw-bold">PERSYARATAN PENGAJUAN</h3>
-    <p>Untuk mengajukan Surat Keterangan Belum Menikah, pemohon harus memenuhi persyaratan berikut:</p>
-    <ol>
-        <li>Fotokopi Kartu Tanda Penduduk (KTP) yang masih berlaku</li>
-        <li>Fotokopi Kartu Keluarga (KK)</li>
-        <li>Surat Pengantar dari RT/RW setempat</li>
-        <li>Surat Pernyataan Belum Menikah yang ditandatangani di atas materai</li>
-        <li>Pas Foto berwarna ukuran 3x4 cm (2 lembar)</li>
-        <li>Jika diperlukan, melampirkan Surat Keterangan dari Pengadilan Agama (untuk kasus tertentu)</li>
-        <li>Biaya administrasi (jika ada, sesuai dengan kebijakan daerah masing-masing)</li>
-    </ol>
-    <p><strong>Catatan:</strong> Proses pengajuan dapat berbeda di setiap daerah. Pemohon disarankan untuk mengecek informasi lebih lanjut di kantor kelurahan atau situs resmi pemerintah setempat.</p>
-</div>
-    </div>
+        <div class="tab-pane fade" id="persyaratan">
+            <h3 class="fw-bold">PERSYARATAN PENGAJUAN</h3>
+            <ol>
+                <li>Fotokopi KTP</li>
+                <li>Fotokopi Kartu Keluarga</li>
+                <li>Surat Keterangan dari RT/RW</li>
+                <li>Surat Keterangan dari pengadilan agama</li>
+            </ol>
+                <button type="submit" class="btn btn-primary mt-3 flex items-center space-x-2">
+                    <img src="{{ asset('images/Ajukan.png') }}" alt="Ajukan" class="w-6 h-6"> 
+                </button>
+            </div>
+        </div>
 
     <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
         <div class="modal-dialog">
