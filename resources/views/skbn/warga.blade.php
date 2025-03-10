@@ -197,7 +197,7 @@
             </div>
                 <div class="step">
                 <div class="icon">
-                    <img src="{{ asset('images/disetujui.png') }}" alt="Disetujui">
+                    <img src="images/disetujui.png" alt="Disetujui">
                 </div>
                 <p>Disetujui</p>
                 <div class="timestamp" id="timestamp-disetujui"></div>
@@ -205,9 +205,9 @@
         </div>
 
         <div class="button-container">
-            <img src="{{ asset('images/Hapus.png') }}" alt="Hapus" title="Hapus">
-            <img src="{{ asset('images/Lihat.png') }}" alt="Lihat" title="Lihat">
-            <img src="{{ asset('images/Cetak Surat.png') }}" alt="Cetak Surat" title="Cetak Surat">
+            <img src="images/Hapus.png" alt="Hapus" title="Hapus">
+            <img src="images/Hapus.png" alt="Lihat" title="Lihat">
+            <img src="images/Cetak Surat.png" alt="Cetak Surat" title="Cetak Surat">
         </div>
     </div>
 
