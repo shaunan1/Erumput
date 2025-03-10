@@ -14,15 +14,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
         <style>
-            .navbar-custom {
-        background-color: white;
-        padding: 12px 20px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-    }
+        /* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Sesuaikan dengan tinggi navbar */
+    background: white; /* Pastikan warna latar */
+    z-index: 1000; /* Pastikan lebih tinggi dari sidebar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
     .btn-custom {
         background-color: #b59d6a;
@@ -63,6 +65,23 @@
     overflow-y: auto; /* Tambahkan scrollbar jika kontennya panjang */
 }
 
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Sesuaikan dengan tinggi navbar */
+    left: -100%;
+    width: 250px;
+    height: calc(100vh - 60px); /* Sesuaikan dengan tinggi layar dikurangi navbar */
+    background: #f8f9fa;
+    z-index: 999; /* Pastikan lebih rendah dari navbar */
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Jika sidebar terbuka */
+.sidebar.show {
+    left: 0;
+}
 
             .sidebar a {
                 display: block;
@@ -83,10 +102,10 @@
             }
 
             .content {
-                margin-left: 250px; /* Adjusted to account for sidebar width */
+                margin-left: 0;
                 padding: 20px;
-                margin-top: 60px; /* Adjusted to account for navbar height */
-                min-height: 100vh; /* Pastikan kontennya tidak terlalu pendek */
+                margin-top: 60px;
+                transition: margin-left 0.3s ease-in-out;
             }
 
             .list-group-item {
@@ -111,12 +130,44 @@
                 padding-top: 60px; /* Sesuaikan dengan tinggi navbar */
             }
 
+            /* Jika sidebar terbuka, geser konten */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 65%; /* Sidebar lebih kecil di layar kecil */
+    }
+    .content {
+        margin-left: 0; /* Jangan geser konten di mobile */
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        left: 0;
+        width: 250px;
+    }
+    .content {
+        margin-left: 250px;
+    }
+}
+
+
+            /* Tombol menu (hamburger) di mobile */
+                #toggleSidebar {
+                    display: block;
+                }
+            /* Atur tabel agar tidak keluar batas */
+                .table-responsive {
+                    overflow-x: auto;
+                }    
         </style>
     </head>
 
     <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <div class="container">
+    <button class="btn btn-outline-secondary d-md-none" id="toggleSidebar">
+    ☰ Menu
+    </button>
         <a class="navbar-brand" href="{{ url('/warga') }}">
             <img src="{{ asset('assets/esuket.png') }}" alt="E-SUKET Logo" height="30">
         </a>
@@ -214,6 +265,25 @@
         </style>
     </div>
 </div>
+
+<script>
+    document.getElementById("toggleSidebar").addEventListener("click", function () {
+        let sidebar = document.querySelector(".sidebar");
+        let content = document.querySelector(".content");
+
+        sidebar.classList.toggle("show");
+
+        // Jika sidebar terbuka di layar besar, geser konten
+        if (window.innerWidth >= 768) {
+            if (sidebar.classList.contains("show")) {
+                content.style.marginLeft = "250px"; // Sesuaikan dengan sidebar
+            } else {
+                content.style.marginLeft = "0";
+            }
+        }
+    });
+</script>
+
 
 
         <div class="content">
