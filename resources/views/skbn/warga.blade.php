@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .nav-tabs {
             border-bottom: 2px solid #007bff;
@@ -96,51 +96,94 @@
             background: #ccc;
             z-index: -1;
         }
-        .button-container {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 20px;
+        .status-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        margin: auto;
     }
-    .button-container button {
+    .status-header {
+        margin-bottom: 20px;
+    }
+    .status-header h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+    }
+    .status-header span {
+        font-size: 14px;
+        color: #777;
+    }
+    .progress-bar {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        padding: 10px 20px;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .step {
+        text-align: center;
+        position: relative;
+    }
+    .step .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    .step img {
+        width: 24px;
+    }
+    .step p {
+        font-size: 12px;
+        margin: 0;
+        color: #555;
+    }
+    .active .icon {
+        background: #4CAF50;
+    }
+    .progress-line {
+        flex-grow: 1;
+        height: 4px;
+        background: #ddd;
+    }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .button-container button {
         border: none;
-        border-radius: 25px;
-        font-size: 14px;
-        font-weight: bold;
-        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 5px;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .btn-danger {
-        background-color: #d9534f;
-        color: white;
-    }
-    .btn-danger:hover {
-        background-color: #c9302c;
+        background: #e74c3c;
+        color: #fff;
     }
     .btn-warning {
-        background-color: #b3a07f;
-        color: white;
-    }
-    .btn-warning:hover {
-        background-color: #998c6b;
+        background: #f39c12;
+        color: #fff;
     }
     .btn-secondary {
-        background-color: #b3a07f;
-        color: white;
-        opacity: 0.7;
-        cursor: not-allowed;
-    }
-    .btn-secondary:enabled:hover {
-        background-color: #998c6b;
+        background: #7f8c8d;
+        color: #fff;
     }
     .button-container button img {
         width: 16px;
-        height: 16px;
+        margin-right: 5px;
     }
     </style>
 @endpush
@@ -184,7 +227,6 @@
                 <img src="{{ asset('images/diajukan.png') }}" alt="Diajukan">
             </div>
             <p>Diajukan</p>
-            <span class="timestamp"></span> 
         </div>
         <div class="progress-line"></div>
         <div class="step" id="step-diproses">
@@ -203,56 +245,11 @@
     </div>
 
     <div class="button-container">
-        <button class="btn-danger" onclick="hapusSurat()">
-            <img src="{{ asset('images/Hapus.png') }}" alt="Hapus"> 
-        </button>
-        <button class="btn-warning" onclick="lihatSurat()">
-            <img src="{{ asset('images/Lihat.png') }}" alt="Lihat">
-        </button>
-        <button class="btn-secondary" id="btn-cetak" onclick="cetakSurat()" disabled>
-            <img src="{{ asset('images/Cetak Surat.png') }}" alt="Cetak Surat"> 
-        </button>
+        <button class="btn-danger" onclick="hapusSurat()">Hapus</button>
+        <button class="btn-warning" onclick="lihatSurat()">Lihat</button>
+        <button class="btn-secondary" id="btn-cetak" onclick="cetakSurat()" disabled>Cetak</button>
     </div>
 </div>
-
-
-    <script>
-        let statusIndex = 0;
-    const steps = document.querySelectorAll('.step');
-    const btnCetak = document.getElementById('btn-cetak');
-
-    function nextStatus() {
-        if (statusIndex < 2) {
-            steps[statusIndex].classList.remove('active');
-            statusIndex++;
-            steps[statusIndex].classList.add('active');
-
-            // Aktifkan tombol cetak jika sudah disetujui
-            if (statusIndex === 2) {
-                btnCetak.classList.add('active');
-                btnCetak.disabled = false;
-            }
-        }
-    }
-
-    function hapusSurat() {
-        alert("Surat berhasil dihapus.");
-        location.reload();
-    }
-
-    function lihatSurat() {
-        alert("Menampilkan detail surat...");
-        nextStatus(); // Lanjut ke status berikutnya saat tombol lihat diklik
-    }
-
-    function cetakSurat() {
-        if (statusIndex === 2) {
-            alert("Mencetak surat...");
-        } else {
-            alert("Surat belum disetujui!");
-        }
-    }
-    </script>
     
 <div class="tab-pane fade" id="deskripsi">
     <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN BELUM MENIKAH</h3>
@@ -263,6 +260,7 @@
     <p><strong>Proses Pengajuan:</strong> Pemohon harus melengkapi persyaratan dan mengajukan permohonan di kantor kelurahan atau secara daring (jika tersedia).</p>
 </div>
 
+<div class="tab-content"></div>
 <div class="tab-pane fade" id="persyaratan">
     <h3 class="fw-bold">PERSYARATAN PENGAJUAN</h3>
     <p>Untuk mengajukan Surat Keterangan Belum Menikah, pemohon harus memenuhi persyaratan berikut:</p>
@@ -373,4 +371,41 @@
             });
         });
     });
+
+        let statusIndex = 0;
+    const steps = document.querySelectorAll('.step');
+    const btnCetak = document.getElementById('btn-cetak');
+
+    function nextStatus() {
+        if (statusIndex < 2) {
+            steps[statusIndex].classList.remove('active');
+            statusIndex++;
+            steps[statusIndex].classList.add('active');
+
+            // Aktifkan tombol cetak jika sudah disetujui
+            if (statusIndex === 2) {
+                btnCetak.classList.add('active');
+                btnCetak.disabled = false;
+            }
+        }
+    }
+
+    function hapusSurat() {
+        alert("Surat berhasil dihapus.");
+        location.reload();
+    }
+
+    function lihatSurat() {
+        alert("Menampilkan detail surat...");
+        nextStatus(); // Lanjut ke status berikutnya saat tombol lihat diklik
+    }
+
+    function cetakSurat() {
+        if (statusIndex === 2) {
+            alert("Mencetak surat...");
+        } else {
+            alert("Surat belum disetujui!");
+        }
+    }
+  
 </script>
