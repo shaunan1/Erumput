@@ -61,29 +61,79 @@
             </div>
             <br>
           
+            <div class="container">
+        <div class="title">Surat Ket. Belum Menikah</div>
+        <div class="subtitle" id="nomor-surat">No. Surat: </div>
+
         <div class="progress-bar">
-            <div class="step active">
+            <div class="step" id="step-diajukan">
                 <div class="icon">
-                    <img src="{{ asset('images/diajukan.png') }}" alt="Diajukan" style="width: 50px; height: 50px;">
+                    <img src="images/diajukan.png" alt="Diajukan">
                 </div>
-                      <p>Diajukan</p>
+                <p>Diajukan</p>
                 <div class="timestamp" id="timestamp-diajukan"></div>
             </div>
-                <div class="step">
+            <div class="step" id="step-diproses">
                 <div class="icon">
-                    <img src="{{ asset('images/diproses.png') }}" alt="Diproses" style="width: 50px; height: 50px;">
-            </div>
-                    <p>Diproses</p>
+                    <img src="images/diproses.png" alt="Diproses">
+                </div>
+                <p>Diproses</p>
                 <div class="timestamp" id="timestamp-diproses"></div>
             </div>
-                <div class="step">
+            <div class="step" id="step-disetujui">
                 <div class="icon">
-                    <img src="{{ asset('images/disetujui.png') }}" alt="Disetujui" style="width: 50px; height: 50px;">
-            </div>
-                    <p>Disetujui</p>
+                    <img src="images/disetujui.png" alt="Disetujui">
+                </div>
+                <p>Disetujui</p>
                 <div class="timestamp" id="timestamp-disetujui"></div>
             </div>
         </div>
+
+        <div class="button-container">
+            <img src="images/Hapus.png" alt="Hapus" title="Hapus">
+            <img src="images/Hapus.png" alt="Lihat" title="Lihat">
+            <img src="images/Cetak Surat.png" alt="Cetak Surat" title="Cetak Surat">
+        </div>
+    </div>
+
+    <script>
+        // Generate Nomor Surat Otomatis
+        function generateNomorSurat() {
+            const randomNumber = Math.floor(100000000000 + Math.random() * 900000000000);
+            document.getElementById('nomor-surat').innerText = `No. Surat: ${randomNumber}`;
+        }
+
+        // Set Tanggal dan Waktu Otomatis
+        function setTimestamps() {
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('id-ID');
+            const formattedTime = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+            document.getElementById('timestamp-diajukan').innerHTML = `${formattedDate}<br>${formattedTime}`;
+            document.getElementById('timestamp-diproses').innerHTML = `${formattedDate}<br>${formattedTime}`;
+            document.getElementById('timestamp-disetujui').innerHTML = `${formattedDate}<br>${formattedTime}`;
+        }
+
+        // Update Progress Steps
+        function updateProgress(currentStep) {
+            const steps = ['diajukan', 'diproses', 'disetujui'];
+            steps.forEach(step => {
+                const stepElement = document.getElementById(`step-${step}`);
+                if (steps.indexOf(step) <= steps.indexOf(currentStep)) {
+                    stepElement.classList.add('active');
+                } else {
+                    stepElement.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize
+        window.onload = function() {
+            generateNomorSurat();
+            setTimestamps();
+            updateProgress('diproses'); // Set current progress step here
+        };
+    </script>
 
 <div class="tab-pane fade" id="deskripsi">
     <h3 class="fw-bold">PENGAJUAN SURAT KETERANGAN BELUM MENIKAH</h3>
