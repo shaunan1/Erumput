@@ -31,6 +31,117 @@
             background: #ffffff;
             border-radius: 0 0 5px 5px;
         }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .status-card {
+            background: white;
+            width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .status-header {
+            background: #5d8aa8;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+        .step .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ddd;
+            border: 2px solid #ccc;
+            margin: 0 auto 5px;
+        }
+        .step.active .icon {
+            background: #5d8aa8;
+            border: 2px solid #5d8aa8;
+        }
+        .step p {
+            color: #bbb;
+        }
+        .step.active p {
+            color: #5d8aa8;
+        }
+        .progress-line {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            width: 100%;
+            height: 4px;
+            background: #ccc;
+            z-index: -1;
+        }
+        .button-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .button-container button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .btn-danger {
+        background-color: #d9534f;
+        color: white;
+    }
+    .btn-danger:hover {
+        background-color: #c9302c;
+    }
+    .btn-warning {
+        background-color: #b3a07f;
+        color: white;
+    }
+    .btn-warning:hover {
+        background-color: #998c6b;
+    }
+    .btn-secondary {
+        background-color: #b3a07f;
+        color: white;
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+    .btn-secondary:enabled:hover {
+        background-color: #998c6b;
+    }
+    .button-container button img {
+        width: 16px;
+        height: 16px;
+    }
     </style>
 @endpush
         
@@ -62,56 +173,85 @@
             <br>
           
             <div class="status-card">
-        <div class="status-header">
-            <h3>Surat Ket. Belum Menikah</h3>
-            <span id="no-surat">No. Surat: </span>
-        </div>
-        <div class="progress-bar">
-                <div class="step" id="step-diajukan">
-                        <div class="icon">
-                            <img src="{{ asset('images/diajukan.png') }}" alt="Diajukan">
-                        </div>
-                        <p>Diajukan</p>
-                        <div class="timestamp" id="timestamp-diajukan"></div>
-                    </div>
-                <div class="step" id="step-diproses">
-                        <div class="icon">
-                            <img src="{{ asset('images/diproses.png') }}" alt="Diproses">
-                        </div>
-                        <p>Diproses</p>
-                        <div class="timestamp" id="timestamp-diproses"></div>
-                    </div>
-                <div class="step" id="step-disetujui">
-                        <div class="icon">
-                            <img src="{{ asset('images/disetujui.png') }}" alt="Disetujui">
-                        </div>
-                        <p>Disetujui</p>
-                        <div class="timestamp" id="timestamp-disetujui"></div>
-                    </div>
-                </div>
-                <div class="button-container">
-                    <img src="{{ asset('images/Hapus.png') }}" alt="Hapus" title="Hapus">
-                    <img src="{{ asset('images/Lihat.png) }}" alt="Lihat" title="Lihat">
-                    <img src="{{ asset('images/Cetak Surat.png') }}" alt="Cetak Surat" title="Cetak Surat">
-                </div>
+    <div class="status-header">
+        <h3>Surat Keterangan Kelahiran</h3>
+        <span id="no-surat">No. Surat: 00000000000000</span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="step active" id="step-diajukan">
+            <div class="icon">
+                <img src="{{ asset('images/diajukan.png') }}" alt="Diajukan">
             </div>
+            <p>Diajukan</p>
+            <span class="timestamp"></span> 
         </div>
+        <div class="progress-line"></div>
+        <div class="step" id="step-diproses">
+            <div class="icon">
+                <img src="{{ asset('images/diproses.png') }}" alt="Diproses">
+            </div>
+            <p>Diproses</p>
+        </div>
+        <div class="progress-line"></div>
+        <div class="step" id="step-disetujui">
+            <div class="icon">
+                <img src="{{ asset('images/disetujui.png') }}" alt="Disetujui">
+            </div>
+            <p>Disetujui</p>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="btn-danger" onclick="hapusSurat()">
+            <img src="{{ asset('images/Hapus.png') }}" alt="Hapus"> 
+        </button>
+        <button class="btn-warning" onclick="lihatSurat()">
+            <img src="{{ asset('images/Lihat.png') }}" alt="Lihat">
+        </button>
+        <button class="btn-secondary" id="btn-cetak" onclick="cetakSurat()" disabled>
+            <img src="{{ asset('images/Cetak Surat.png') }}" alt="Cetak Surat"> 
+        </button>
+    </div>
+</div>
+
 
     <script>
-        // Simulate status timestamps
-        const timestamps = {
-            submitted: new Date('2025-03-07T09:00:00'),
-            processed: new Date('2025-03-07T12:00:00'),
-            approved: null, // Change to a date when the approval step is completed
-        };
+        let statusIndex = 0;
+    const steps = document.querySelectorAll('.step');
+    const btnCetak = document.getElementById('btn-cetak');
 
-        document.getElementById('time-submitted').textContent = timestamps.submitted.toLocaleString();
-        document.getElementById('time-processed').textContent = timestamps.processed.toLocaleString();
-        document.getElementById('time-approved').textContent = timestamps.approved ? timestamps.approved.toLocaleString() : 'Belum Disetujui';
+    function nextStatus() {
+        if (statusIndex < 2) {
+            steps[statusIndex].classList.remove('active');
+            statusIndex++;
+            steps[statusIndex].classList.add('active');
 
-        // Auto-generate a unique number for the letter
-        const noSurat = `SN-${Date.now()}`;
-        document.getElementById('no-surat').textContent += noSurat;
+            // Aktifkan tombol cetak jika sudah disetujui
+            if (statusIndex === 2) {
+                btnCetak.classList.add('active');
+                btnCetak.disabled = false;
+            }
+        }
+    }
+
+    function hapusSurat() {
+        alert("Surat berhasil dihapus.");
+        location.reload();
+    }
+
+    function lihatSurat() {
+        alert("Menampilkan detail surat...");
+        nextStatus(); // Lanjut ke status berikutnya saat tombol lihat diklik
+    }
+
+    function cetakSurat() {
+        if (statusIndex === 2) {
+            alert("Mencetak surat...");
+        } else {
+            alert("Surat belum disetujui!");
+        }
+    }
     </script>
     
 <div class="tab-pane fade" id="deskripsi">
