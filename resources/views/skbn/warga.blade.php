@@ -91,7 +91,7 @@
                 </div>
                 <div class="button-container">
                     <img src="{{ asset('images/Hapus.png') }}" alt="Hapus" title="Hapus">
-                    <img src="{{ asset('images/Hapus.png') }}" alt="Lihat" title="Lihat">
+                    <img src="{{ asset('images/Lihat.png) }}" alt="Lihat" title="Lihat">
                     <img src="{{ asset('images/Cetak Surat.png') }}" alt="Cetak Surat" title="Cetak Surat">
                 </div>
             </div>
